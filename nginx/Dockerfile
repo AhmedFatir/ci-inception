@@ -11,7 +11,7 @@ RUN openssl req -x509 -nodes \
     -keyout /etc/nginx/ssl/inception.key \
     -subj "/C=MO/ST=KH/L=KH/O=1337/OU=1337/CN=user.42.fr/UID=user"
 
-COPY ./conf/nginx.conf /etc/nginx/nginx.conf
+COPY conf/nginx.conf /etc/nginx/nginx.conf
 
 RUN mkdir -p /var/www/wordpress
 
