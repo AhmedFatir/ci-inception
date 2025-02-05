@@ -1,21 +1,11 @@
+#!/usr/bin/env groovy
+
 pipeline {
     agent any
-
     stages {
-        
-        stage("build") {
+        stage('Build') {
             steps {
-                echo "building the app...second time"
-            }
-        }
-        stage("test") {
-            steps {
-                echo "testing the app..."
-            }
-        }
-        stage("deploy") {
-            steps {
-                echo "deploying the app..."
+                sh 'echo "Hello World"'
             }
         }
     }
