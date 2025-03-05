@@ -10,6 +10,8 @@ cd /var/www/wordpress
 chmod -R 755 /var/www/wordpress/
 chown -R www-data:www-data /var/www/wordpress
 
+until nc -z mariadb 3306; do echo "Waiting for database..."; sleep 3; done;
+
 echo "Checking WordPress installation..."
 check_core_files() {
     wp core is-installed --allow-root > /dev/null

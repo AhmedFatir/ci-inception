@@ -25,11 +25,7 @@ services:
     networks:
       - inception
     restart: always
-    healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
-      interval: 5s
-      timeout: 5s
-      retries: 10
+
 #nginx
   nginx:
     image: nginx
@@ -39,6 +35,7 @@ services:
       dockerfile: Dockerfile
     ports:
       - "443:443"
+      - "80:80"
     depends_on:
       - wordpress
     volumes:
@@ -46,6 +43,7 @@ services:
     networks:
       - inception
     restart: always
+
 #wordpress
   wordpress:
     image: wordpress
@@ -54,8 +52,7 @@ services:
       context: ./wordpress
       dockerfile: Dockerfile
     depends_on:
-      mariadb:
-        condition: service_healthy
+      - mariadb
     volumes:
       - wordpress:/var/www/wordpress
     env_file:
