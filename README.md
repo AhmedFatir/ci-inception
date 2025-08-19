@@ -51,3 +51,6 @@ ln -s ~/goinfre/DockerData/com.docker.docker ~/Library/Containers/com.docker.doc
 
 #Open Docker > Preferences > Resources > File Sharing > Add ~/goinfre to Shared Paths
 ```
+
+
+
